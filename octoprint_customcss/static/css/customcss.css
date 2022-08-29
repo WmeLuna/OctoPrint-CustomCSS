@@ -4,6 +4,6 @@
 #settings_plugin_customcss .control-group, #settings_plugin_customcss .controls, #settings_plugin_customcss textarea {
   height: calc(100%);
 }
-#settings_plugin_customcss .monaco-editor minimap{
+#settings_plugin_customcss .monaco-editor .minimap{
   display: none;
 }
