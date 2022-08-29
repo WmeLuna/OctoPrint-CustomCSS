@@ -9,7 +9,9 @@
         document.querySelector("#settings_plugin_customcss .controls"),
         { language: "css",
         value: textareaDom.value, 
-        theme: "vs-dark" 
+        theme: "vs-dark",
+        minimap: {enabled: false},
+        scrollBeyondLastLine: false 
         }
       );
       window.editor.onDidChangeModelContent((event) => {
