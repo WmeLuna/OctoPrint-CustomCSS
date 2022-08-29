@@ -17,6 +17,11 @@
         textareaDom.dispatchEvent(new Event('change'));
       });;
     });
+    document.querySelector('li#settings_plugin_customcss_link').onclick = async function(){
+        await new Promise(r => setTimeout(r, 100));
+        editor.setValue(textareaDom.value);
+        editor.layout();
+    }
 })();
 </script>
 <form class="form-vertical">
