@@ -1,10 +1,10 @@
 <script>
 (async () => {
     const imp = async url => eval(await (await fetch(url)).text());
+    let textareaDom = document.querySelector("#settings_plugin_customcss .controls textarea");
     await imp('https://unpkg.com/@monaco-editor/loader@latest/lib/umd/monaco-loader.min.js');
     monaco_loader.config({paths: { vs: "https://unpkg.com/monaco-editor@latest/min/vs" }});
     monaco_loader.init().then((monaco) => {
-      let textareaDom = document.querySelector("#settings_plugin_customcss .controls textarea");
       window.editor = monaco.editor.create(
         document.querySelector("#settings_plugin_customcss .controls"),
         { language: "css",
