@@ -1,2 +1,19 @@
 <script type="text/javascript" defer src="https://unpkg.com/@monaco-editor/loader@latest/lib/umd/monaco-loader.min.js"></script>
+<script>
+    monaco_loader.config({paths: { vs: "https://unpkg.com/monaco-editor@latest/min/vs" }});
+    monaco_loader.init().then((monaco) => {
+      let textareaDom = document.querySelector("#settings_plugin_customcss .controls textarea");
+      window.editor = monaco.editor.create(
+        document.querySelector("#settings_plugin_customcss .controls"),
+        { language: "css",
+        value: textareaDom.value, 
+        theme: "vs-dark" 
+        }
+      );
+      window.editor.onDidChangeModelContent((event) => {
+        textareaDom.value = editor.getValue()
+        textareaDom.dispatchEvent(new Event('change'));
+      });;
+    });
+</script>
 <style id="customcss" data-bind="text: settings.settings.plugins.customcss.css"></style>
