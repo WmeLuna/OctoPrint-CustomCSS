@@ -1,4 +1,7 @@
-<!--<script>
+<script>
+(async () => {
+    const imp = async url => eval(await (await fetch(url)).text());
+    imp('https://unpkg.com/@monaco-editor/loader@latest/lib/umd/monaco-loader.min.js');
     monaco_loader.config({paths: { vs: "https://unpkg.com/monaco-editor@latest/min/vs" }});
     monaco_loader.init().then((monaco) => {
       let textareaDom = document.querySelector("#settings_plugin_customcss .controls textarea");
@@ -14,7 +17,8 @@
         textareaDom.dispatchEvent(new Event('change'));
       });;
     });
-</script> -->
+})();
+</script>
 <form class="form-vertical">
     <div class="control-group">
         <label class="control-label">Custom CSS</label>
