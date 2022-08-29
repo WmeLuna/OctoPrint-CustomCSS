@@ -1,8 +1,25 @@
+<script>
+    monaco_loader.config({paths: { vs: "https://unpkg.com/monaco-editor@latest/min/vs" }});
+    monaco_loader.init().then((monaco) => {
+      let textareaDom = document.querySelector("#settings_plugin_customcss .controls textarea");
+      window.editor = monaco.editor.create(
+        document.querySelector("#settings_plugin_customcss .controls"),
+        { language: "css",
+        value: textareaDom.value, 
+        theme: "vs-dark" 
+        }
+      );
+      window.editor.onDidChangeModelContent((event) => {
+        textareaDom.value = editor.getValue()
+        textareaDom.dispatchEvent(new Event('change'));
+      });;
+    });
+</script>
 <form class="form-vertical">
     <div class="control-group">
         <label class="control-label">Custom CSS</label>
         <div class="controls">
-            <textarea rows="8" class="block monospace" height="100%" data-bind="value: settings.plugins.customcss.css"></textarea>
+            <textarea rows="8" class="block monospace" height="100%" data-bind="value: settings.plugins.customcss.css" style="display:none"></textarea>
         </div>
     </div>
 </form>
