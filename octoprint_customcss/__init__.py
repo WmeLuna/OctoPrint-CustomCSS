@@ -54,12 +54,12 @@ class CustomcssPlugin(octoprint.plugin.SettingsPlugin,
 
 				# version check: github repository
 				type="github_release",
-				user="crankeye",
+				user="WmeLuna",
 				repo="OctoPrint-CustomCSS",
 				current=self._plugin_version,
 
 				# update method: pip
-				pip="https://github.com/crankeye/OctoPrint-CustomCSS/archive/{target_version}.zip"
+				pip="https://github.com/WmeLuna/OctoPrint-CustomCSS/archive/{target_version}.zip"
 			)
 		)
 

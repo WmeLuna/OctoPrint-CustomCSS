@@ -11,9 +11,9 @@ license: AGPLv3
 # TODO
 date: today's date in format YYYY-MM-DD, e.g. 2015-04-21
 
-homepage: https://github.com/crankeye/OctoPrint-CustomCSS
-source: https://github.com/crankeye/OctoPrint-CustomCSS
-archive: https://github.com/crankeye/OctoPrint-CustomCSS/archive/master.zip
+homepage: https://github.com/WmeLuna/OctoPrint-CustomCSS
+source: https://github.com/WmeLuna/OctoPrint-CustomCSS
+archive: https://github.com/WmeLuna/OctoPrint-CustomCSS/archive/master.zip
 
 # TODO
 # Set this to true if your plugin uses the dependency_links setup parameter to include
