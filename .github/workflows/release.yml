@@ -15,8 +15,9 @@ jobs:
       - name: Release
         run: |
           VER=`cat setup.py | grep "plugin_version = " |sed 's/plugin_version = "//' |sed 's/"//'`
+          DESCR=$(git log $(git describe --tags --abbrev=0)..HEAD --pretty="format:%h | %s")
           git tag $VER
           git push origin $VER
-          gh release create $VER -t "CustomCSS $VER" -n "$(git rev-parse HEAD | cut -c 1-7) | $(git log -1 --pretty=%B)"
+          gh release create $VER -t "CustomCSS Release v$VER" -n "$DESCR"
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
