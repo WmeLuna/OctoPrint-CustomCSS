@@ -37,7 +37,7 @@
     for (var i = 0; i < len; i++){
       var option = document.createElement("option");
       option.innerHTML = Object.values(themes)[i]
-      option.value = Object.values(themes)[i]
+      option.value = Object.keys(themes)[i]
       drop.options.add(option)
     }
     const _loadedThemes = {};
