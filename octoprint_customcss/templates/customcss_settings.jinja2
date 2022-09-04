@@ -28,12 +28,27 @@
     }
 })();
 </script>
+<script>
+  (async () => {
+    let themes = await (await fetch("https://bitwiser.in/monaco-themes/themes/themelist.json")).json();
+    let drop = document.querySelector('#themes')
+    let len = Object.keys(themes).length
+
+    for (var i = 0; i < len; i++){
+      var option = document.createElement("option");
+      option.innerHTML = Object.values(themes)[i]
+      option.value = Object.values(themes)[i]
+      drop.options.add(option)
+    }
+  })();
+</script>
 <form class="form-vertical">
   <div class="control-group">
 
     <div class="header">
       <span class="control-label">Custom CSS</span>
       <div class="settings">
+        <select id="themes" data-bind="value: settings.plugins.customcss.monacotheme"></select>
         <button type="button" onclick="editor.getAction('editor.action.formatDocument').run();">Format</button>
       </div>
     </div>
