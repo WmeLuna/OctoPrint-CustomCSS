@@ -37,9 +37,15 @@
     for (var i = 0; i < len; i++){
       var option = document.createElement("option");
       option.innerHTML = Object.values(themes)[i]
-      option.value = Object.values(themes)[i]
+      option.value = Object.keys(themes)[i]
       drop.options.add(option)
     }
+    const _loadedThemes = {};
+    const setTheme = async (x) => {
+      if (!x.startsWith('vs') && !_loadedThemes[x]) _loadedThemes[x] = monaco.editor.defineTheme(x, await (await fetch(`https://raw.githubusercontent.com/brijeshb42/monaco-themes/master/themes/${x}.json`)).json());
+      monaco.editor.setTheme(x);
+    };
+
   })();
 </script>
 <form class="form-vertical">
