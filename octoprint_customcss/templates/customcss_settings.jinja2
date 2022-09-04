@@ -11,7 +11,7 @@
       drop.options.add(option)
     }
     const _loadedThemes = {};
-    const window.setTheme = async (x, y) => {
+    window.setTheme = async (x, y) => {
       if (!x.startsWith('vs') && !_loadedThemes[x]) _loadedThemes[x] = monaco.editor.defineTheme(x, await (await fetch(`https://raw.githubusercontent.com/brijeshb42/monaco-themes/master/themes/${y}.json`)).json());
       monaco.editor.setTheme(x);
     };
