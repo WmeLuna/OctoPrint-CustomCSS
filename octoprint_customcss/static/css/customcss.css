@@ -44,7 +44,7 @@ body.modal-open div#settings_dialog .modal-body {
   height: 100%;
 }
 body.modal-open div#settings_dialog #settings_dialog_label::before {
-  content: url(../static/img/tentacle-20x20.png);
+  content: url("/static/img/tentacle-20x20.png");
   margin-right: 5px;
   width: 20px;
   height: 20px;
