@@ -1,12 +1,51 @@
-#settings_plugin_customcss {
+#settings_plugin_customcss,
+#settings_plugin_customcss form.form-vertical {
   height: calc(100% - 20px);
+  padding-right: 7.5px;
 }
-#settings_plugin_customcss form {
-  height: calc(100% - 20px);
-}
-#settings_plugin_customcss .control-group, #settings_plugin_customcss .controls, #settings_plugin_customcss textarea {
+#settings_plugin_customcss .control-group,
+#settings_plugin_customcss .controls,
+#settings_plugin_customcss textarea {
   height: 100%;
 }
-#settings_plugin_customcss label {
+#settings_plugin_customcss .control-label {
   cursor: default;
+  height: 16px;
+  margin: auto 0;
+  font-weight: 600;
+}
+#settings_plugin_customcss .header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+#settings_plugin_customcss .settings button {
+  margin-left: 5px;
+}
+
+body.modal-open .modal-scrollable {
+  overflow-y: auto !important;
+}
+body.modal-open .modal-scrollable div#settings_dialog {
+  display: flex !important;
+  flex-direction: column;
+}
+body.modal-open div#settings_dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: -1.6px !important;
+  width: 100%;
+  height: 100%;
+  border-radius: unset;
+}
+body.modal-open div#settings_dialog .modal-body {
+  max-height: unset !important;
+  height: 100%;
+}
+body.modal-open div#settings_dialog #settings_dialog_label::before {
+  content: url(../static/img/tentacle-20x20.png);
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
 }

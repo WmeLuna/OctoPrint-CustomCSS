@@ -27,12 +27,19 @@
 })();
 </script>
 <form class="form-vertical">
-    <div class="control-group">
-        <label class="control-label">Custom CSS</label>
-        <div class="controls">
-            <textarea rows="8" class="block monospace" height="100%" data-bind="value: settings.plugins.customcss.css" style="display:none"></textarea>
-        </div>
+  <div class="control-group">
+
+    <div class="header">
+      <span class="control-label">Custom CSS</label>
+      <div class="settings">
+        <button type="button" onclick="editor.getAction('editor.action.formatDocument').run();">Format</button>
+      </div>
     </div>
+
+    <div class="controls">
+      <textarea rows="8" class="block monospace" height="100%" data-bind="value: settings.plugins.customcss.css" style="display:none"></textarea>
+    </div>
+  </div>
 </form>
 
 
