@@ -60,7 +60,10 @@
     <div class="header">
       <span class="control-label">Custom CSS</span>
       <div class="settings">
-        <select id="themes" data-bind="value: settings.plugins.customcss.monacotheme"></select>
+        <select id="themes" data-bind="value: settings.plugins.customcss.monacotheme">
+          <option value="vs-light">VS Light</option>
+          <option value="vs-dark">VS Dark</option>
+        </select>
         <button type="button" onclick="editor.getAction('editor.action.formatDocument').run();">Format</button>
       </div>
     </div>
