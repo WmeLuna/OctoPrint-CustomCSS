@@ -4,6 +4,7 @@
     await imp('https://unpkg.com/@monaco-editor/loader@latest/lib/umd/monaco-loader.min.js');
     let controlsDom = document.querySelector("#settings_plugin_customcss .controls");
     let textareaDom = controlsDom.querySelector("textarea");
+    let drop = document.querySelector('#settings_plugin_customcss #themes')
     monaco_loader.config({paths: { vs: "https://unpkg.com/monaco-editor@latest/min/vs" }});
     monaco_loader.init().then((monaco) => {
       window.editor = monaco.editor.create(
@@ -19,6 +20,7 @@
         textareaDom.value = editor.getValue()
         textareaDom.dispatchEvent(new Event('change'));
       });;
+      window.setTheme(drop.value,drop.options[drop.selectedIndex].text)
     });
     document.querySelector('li#settings_plugin_customcss_link').onclick = async function(){
         await new Promise(r => setTimeout(r, 100));
@@ -41,13 +43,13 @@
       drop.options.add(option)
     }
     const _loadedThemes = {};
-    const setTheme = async (x, y) => {
+    const window.setTheme = async (x, y) => {
       if (!x.startsWith('vs') && !_loadedThemes[x]) _loadedThemes[x] = monaco.editor.defineTheme(x, await (await fetch(`https://raw.githubusercontent.com/brijeshb42/monaco-themes/master/themes/${y}.json`)).json());
       monaco.editor.setTheme(x);
     };
-    setTheme(drop.value,drop.options[drop.selectedIndex].text)
+    
     drop.onchange = function(){
-       setTheme(drop.value,drop.options[drop.selectedIndex].text)
+       window.setTheme(drop.value,drop.options[drop.selectedIndex].text)
     }
 
   })();
