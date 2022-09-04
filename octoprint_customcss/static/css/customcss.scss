@@ -1,0 +1,12 @@
+#settings_plugin_customcss{
+    height: calc(100% - 20px);
+    form {
+        height: calc(100% - 20px);
+    }
+    .control-group, .controls, textarea {
+        height: calc(100%);
+    }
+    label {
+        cursor: default;
+    }
+}
