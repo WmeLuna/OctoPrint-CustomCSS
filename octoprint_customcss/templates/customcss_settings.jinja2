@@ -23,6 +23,7 @@
     document.querySelector('li#settings_plugin_customcss_link').onclick = async function(){
         await new Promise(r => setTimeout(r, 100));
         window.editor.setValue(textareaDom.value);
+        window.editor.getModel().updateOptions({ tabSize: 2 });
         window.editor.layout();
     }
 })();
