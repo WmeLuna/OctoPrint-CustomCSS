@@ -6,7 +6,7 @@ on:
     paths: [ "setup.py" ]
 
 jobs:
-  build:
+  Release:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,6 +17,6 @@ jobs:
           VER=`cat setup.py | grep "plugin_version = " |sed 's/plugin_version = "//' |sed 's/"//'`
           git tag $VER
           git push origin $VER
-          gh release create $VER -t "$VER" -n "$(git rev-parse HEAD | cut -c 1-7) | $(git log -1 --pretty=%B)"
+          gh release create $VER -t "CustomCSS $VER" -n "$(git rev-parse HEAD | cut -c 1-7) | $(git log -1 --pretty=%B)"
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
