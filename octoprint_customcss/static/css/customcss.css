@@ -22,6 +22,13 @@
 #settings_plugin_customcss .settings button {
   margin-left: 5px;
 }
+#settings_plugin_customcss .settings #themes {
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 26px;
+}
 
 body.modal-open .modal-scrollable {
   overflow-y: auto !important;
