@@ -20,6 +20,6 @@ jobs:
           DESCR=`git log $(git describe --tags --abbrev=0)..HEAD --pretty="format:%h | %s"`
           git tag $VER
           git push origin $VER
-          gh release create $VER -t "CustomCSS Release v$VER" -n "$DESCR"
+          gh release create $VER -t "v$VER" -n "$DESCR"
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
