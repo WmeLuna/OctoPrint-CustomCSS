@@ -41,10 +41,13 @@
       drop.options.add(option)
     }
     const _loadedThemes = {};
-    const setTheme = async (x) => {
-      if (!x.startsWith('vs') && !_loadedThemes[x]) _loadedThemes[x] = monaco.editor.defineTheme(x, await (await fetch(`https://raw.githubusercontent.com/brijeshb42/monaco-themes/master/themes/${x}.json`)).json());
+    const setTheme = async (x, y) => {
+      if (!x.startsWith('vs') && !_loadedThemes[x]) _loadedThemes[x] = monaco.editor.defineTheme(x, await (await fetch(`https://raw.githubusercontent.com/brijeshb42/monaco-themes/master/themes/${y}.json`)).json());
       monaco.editor.setTheme(x);
     };
+    drop.onchange = async function(){
+       setTheme(drop.value,drop.options[drop.selectedIndex])
+    }
 
   })();
 </script>
