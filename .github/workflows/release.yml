@@ -15,7 +15,7 @@ jobs:
       - name: Release
         run: |
           VER=`cat setup.py | grep "plugin_version = " |sed 's/plugin_version = "//' |sed 's/"//'`
-          DESCR=$(git log $(git describe --tags --abbrev=0)..HEAD --pretty="format:%h | %s")
+          DESCR=`git log $(git describe --tags --abbrev=0)..HEAD --pretty="format:%h | %s"`
           git tag $VER
           git push origin $VER
           gh release create $VER -t "CustomCSS Release v$VER" -n "$DESCR"
