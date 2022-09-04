@@ -44,13 +44,13 @@
         textareaDom.value = editor.getValue()
         textareaDom.dispatchEvent(new Event('change'));
       });;
-      window.setTheme(drop.value,drop.options[drop.selectedIndex].text)
     });
     document.querySelector('li#settings_plugin_customcss_link').onclick = async function(){
         await new Promise(r => setTimeout(r, 100));
         window.editor.setValue(textareaDom.value);
         window.editor.getModel().updateOptions({ tabSize: 2 });
         window.editor.layout();
+        window.setTheme(drop.value,drop.options[drop.selectedIndex].text)
     }
 })();
 </script>
