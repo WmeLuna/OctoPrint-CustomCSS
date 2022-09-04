@@ -21,7 +21,7 @@ plugin_version = "1.0.2"
 plugin_description = """A simple plugin for adding custom css to Octoprint"""
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
-plugin_author = "Neal Lambert & WmeLuna"
+plugin_author = "WmeLuna"
 
 # The plugin's author's mail address.
 plugin_author_email = "you@example.com"

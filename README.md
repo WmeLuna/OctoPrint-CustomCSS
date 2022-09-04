@@ -1,6 +1,6 @@
 # OctoPrint-CustomCSS
-
-A simple plugin for adding custom CSS to OctoPrint.
+###### Originally by [crankeye](https://github.com/crankeye/OctoPrint-CustomCSS)
+A simple plugin for adding custom CSS to OctoPrint.   
 
 ## Setup
 
