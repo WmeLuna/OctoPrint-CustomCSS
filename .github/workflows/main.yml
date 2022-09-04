@@ -1,0 +1,22 @@
+name: Auto Release
+
+on:
+  push:
+    branches: [ "master" ]
+    paths: [ "setup.py" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Release
+        run: |
+          VER=`cat setup.py | grep "plugin_version = " |sed 's/plugin_version = "//' |sed 's/"//'`
+          git tag $VER
+          git push origin $VER
+          gh release create $VER -t "$VER" -n "$(git rev-parse HEAD | cut -c 1-7) | $(git log -1 --pretty=%B)"
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
