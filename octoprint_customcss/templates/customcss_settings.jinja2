@@ -46,7 +46,7 @@
       monaco.editor.setTheme(x);
     };
     drop.onchange = async function(){
-       setTheme(drop.value,drop.options[drop.selectedIndex])
+       setTheme(drop.value,drop.options[drop.selectedIndex].text)
     }
 
   })();
