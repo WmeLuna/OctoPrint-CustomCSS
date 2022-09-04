@@ -1,4 +1,28 @@
 <script>
+  (async () => {
+    let themes = await (await fetch("https://bitwiser.in/monaco-themes/themes/themelist.json")).json();
+    let drop = document.querySelector('#settings_plugin_customcss #themes')
+    let len = Object.keys(themes).length
+
+    for (var i = 0; i < len; i++){
+      var option = document.createElement("option");
+      option.innerHTML = Object.values(themes)[i]
+      option.value = Object.keys(themes)[i]
+      drop.options.add(option)
+    }
+    const _loadedThemes = {};
+    const window.setTheme = async (x, y) => {
+      if (!x.startsWith('vs') && !_loadedThemes[x]) _loadedThemes[x] = monaco.editor.defineTheme(x, await (await fetch(`https://raw.githubusercontent.com/brijeshb42/monaco-themes/master/themes/${y}.json`)).json());
+      monaco.editor.setTheme(x);
+    };
+    
+    drop.onchange = function(){
+       window.setTheme(drop.value,drop.options[drop.selectedIndex].text)
+    }
+
+  })();
+</script>
+<script>
 (async () => {
     const imp = async url => eval(await (await fetch(url)).text());
     await imp('https://unpkg.com/@monaco-editor/loader@latest/lib/umd/monaco-loader.min.js');
@@ -29,30 +53,6 @@
         window.editor.layout();
     }
 })();
-</script>
-<script>
-  (async () => {
-    let themes = await (await fetch("https://bitwiser.in/monaco-themes/themes/themelist.json")).json();
-    let drop = document.querySelector('#settings_plugin_customcss #themes')
-    let len = Object.keys(themes).length
-
-    for (var i = 0; i < len; i++){
-      var option = document.createElement("option");
-      option.innerHTML = Object.values(themes)[i]
-      option.value = Object.keys(themes)[i]
-      drop.options.add(option)
-    }
-    const _loadedThemes = {};
-    const window.setTheme = async (x, y) => {
-      if (!x.startsWith('vs') && !_loadedThemes[x]) _loadedThemes[x] = monaco.editor.defineTheme(x, await (await fetch(`https://raw.githubusercontent.com/brijeshb42/monaco-themes/master/themes/${y}.json`)).json());
-      monaco.editor.setTheme(x);
-    };
-    
-    drop.onchange = function(){
-       window.setTheme(drop.value,drop.options[drop.selectedIndex].text)
-    }
-
-  })();
 </script>
 <form class="form-vertical">
   <div class="control-group">
