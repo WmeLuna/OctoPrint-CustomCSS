@@ -62,3 +62,10 @@ body.modal-open {
     }
   }
 }
+// Themeify fixes
+.themeify.discorded,
+.themeify.cyborg,
+.themeify.discoranged,
+.themeify.nighttime {
+  color-scheme: dark;
+}

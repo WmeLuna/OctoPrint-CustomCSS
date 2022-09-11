@@ -56,3 +56,10 @@ body.modal-open div#settings_dialog #settings_dialog_label::before {
   width: 20px;
   height: 20px;
 }
+
+.themeify.discorded,
+.themeify.cyborg,
+.themeify.discoranged,
+.themeify.nighttime {
+  color-scheme: dark;
+}
