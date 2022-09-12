@@ -12,6 +12,8 @@ class CustomcssPlugin(octoprint.plugin.SettingsPlugin,
 		return dict(
 			css="",
 			monacotheme="",
+			gist_id="",
+			gist_raw="",
 		)
 
 	##~~ AssetPlugin mixin
