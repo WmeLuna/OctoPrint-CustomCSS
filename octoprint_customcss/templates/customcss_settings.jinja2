@@ -21,7 +21,7 @@
        window.setTheme(drop.value,drop.options[drop.selectedIndex].text)
     }
     gist.onchange = async function(){
-      document.querySelector("#settings_plugin_customcss #gistraw").textContent=Object.values(JSON.parse(await( await fetch("https://api.github.com/gists/"+document.querySelector("#settings_plugin_customcss #gistid").value)).text()).files)[0].content
+      document.querySelector("#settings_plugin_customcss #gistraw").value=Object.values(JSON.parse(await( await fetch("https://api.github.com/gists/"+document.querySelector("#settings_plugin_customcss #gistid").value)).text()).files)[0].content
     }
 
   })();
@@ -31,7 +31,7 @@
     const imp = async url => eval(await (await fetch(url)).text());
     await imp('https://unpkg.com/@monaco-editor/loader@latest/lib/umd/monaco-loader.min.js');
     let controlsDom = document.querySelector("#settings_plugin_customcss .controls");
-    let textareaDom = controlsDom.querySelector("textarea");
+    let textareaDom = controlsDom.querySelector("textarea#txt");
     let drop = document.querySelector('#settings_plugin_customcss #themes')
     monaco_loader.config({paths: { vs: "https://unpkg.com/monaco-editor@latest/min/vs" }});
     monaco_loader.init().then((monaco) => {
@@ -65,7 +65,6 @@
       <span class="control-label">Custom CSS</span>
       <div class="settings">
         <input id="gistid" type="text" data-bind="textInput: settings.plugins.customcss.gist_id" placeholder="Gist ID">
-        <input id="gistraw" type="text" style="display:none" data-bind="textInput: settings.plugins.customcss.gist_raw">
         <select id="themes" data-bind="value: settings.plugins.customcss.monacotheme">
           <option value="vs-light">VS Light</option>
           <option value="vs-dark">VS Dark</option>
@@ -75,7 +74,8 @@
     </div>
 
     <div class="controls">
-      <textarea rows="8" class="block monospace" height="100%" data-bind="value: settings.plugins.customcss.css" style="display:none"></textarea>
+      <textarea id="txt" rows="8" class="block monospace" height="100%" data-bind="value: settings.plugins.customcss.css" style="display:none"></textarea>
+      <textarea id="gistraw" rows="8" class="block monospace" height="100%" data-bind="value: settings.plugins.customcss.gist_raw" style="display:none"></textarea>
     </div>
   </div>
 </form>
