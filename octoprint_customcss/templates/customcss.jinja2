@@ -3,5 +3,7 @@
 
 
 <script>
+(async function(){
     document.querySelector("style#gist-customcss").textContent=Object.values(JSON.parse(await( await fetch("https://api.github.com/gists/"+document.querySelector("#settings_plugin_customcss #gistid").value)).text()).files)[0].content
+});
 </script>
