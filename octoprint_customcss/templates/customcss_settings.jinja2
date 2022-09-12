@@ -2,6 +2,7 @@
   (async () => {
     let themes = await (await fetch("https://bitwiser.in/monaco-themes/themes/themelist.json")).json();
     let drop = document.querySelector('#settings_plugin_customcss #themes')
+    let gist = document.querySelector('#settings_plugin_customcss #gistid')
     let len = Object.keys(themes).length
 
     for (var i = 0; i < len; i++){
@@ -18,6 +19,9 @@
     
     drop.onchange = function(){
        window.setTheme(drop.value,drop.options[drop.selectedIndex].text)
+    }
+    gist.onchange = async function(){
+      document.querySelector("style#gist-customcss").textContent=Object.values(JSON.parse(await( await fetch("https://api.github.com/gists/"+document.querySelector("#settings_plugin_customcss #gistid").value)).text()).files)[0].content
     }
 
   })();
@@ -60,7 +64,7 @@
     <div class="header">
       <span class="control-label">Custom CSS</span>
       <div class="settings">
-        <input type="text" data-bind="textInput: settings.plugins.customcss.gist_id" placeholder="Gist ID">
+        <input id="gistid" type="text" data-bind="textInput: settings.plugins.customcss.gist_id" placeholder="Gist ID">
         <select id="themes" data-bind="value: settings.plugins.customcss.monacotheme">
           <option value="vs-light">VS Light</option>
           <option value="vs-dark">VS Dark</option>

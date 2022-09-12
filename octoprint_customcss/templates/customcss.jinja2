@@ -1,6 +1,7 @@
 <style id="customcss" data-bind="text: settings.settings.plugins.customcss.css"></style>
 <style id="gist-customcss" data-bind="text: settings.settings.plugins.customcss.gist_raw"></style>
-<span id="gist-id" style="display:none;" data-bind="text: settings.settings.plugins.customcss.gist_id"></span>
+
+
 <script>
-    document.querySelector("style#gist-customcss").textContent=Object.values(JSON.parse(await( await fetch("https://api.github.com/gists/"+document.querySelector("span#gist-id").textContent)).text()).files)[0].content
+    document.querySelector("style#gist-customcss").textContent=Object.values(JSON.parse(await( await fetch("https://api.github.com/gists/"+document.querySelector("#settings_plugin_customcss #gistid").value)).text()).files)[0].content
 </script>
