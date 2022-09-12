@@ -22,6 +22,11 @@
 #settings_plugin_customcss .settings button {
   margin-left: 5px;
 }
+#settings_plugin_customcss .settings input {
+  margin-bottom: 0;
+  height: 26px;
+  padding: 0 6px;
+}
 #settings_plugin_customcss .settings #themes {
   margin: auto;
   width: -webkit-fit-content;
