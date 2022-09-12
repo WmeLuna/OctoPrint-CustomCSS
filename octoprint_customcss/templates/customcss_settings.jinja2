@@ -21,7 +21,7 @@
        window.setTheme(drop.value,drop.options[drop.selectedIndex].text)
     }
     gist.onchange = async function(){
-      document.querySelector("style#gist-customcss").textContent=Object.values(JSON.parse(await( await fetch("https://api.github.com/gists/"+document.querySelector("#settings_plugin_customcss #gistid").value)).text()).files)[0].content
+      document.querySelector("#settings_plugin_customcss #gistraw").textContent=Object.values(JSON.parse(await( await fetch("https://api.github.com/gists/"+document.querySelector("#settings_plugin_customcss #gistid").value)).text()).files)[0].content
     }
 
   })();
@@ -65,6 +65,7 @@
       <span class="control-label">Custom CSS</span>
       <div class="settings">
         <input id="gistid" type="text" data-bind="textInput: settings.plugins.customcss.gist_id" placeholder="Gist ID">
+        <input id="gistraw" type="text" style="display:none" data-bind="textInput: settings.plugins.customcss.gist_raw">
         <select id="themes" data-bind="value: settings.plugins.customcss.monacotheme">
           <option value="vs-light">VS Light</option>
           <option value="vs-dark">VS Dark</option>
