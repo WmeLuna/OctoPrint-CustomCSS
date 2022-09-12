@@ -10,6 +10,6 @@ $(function () {
         dependencies: [
             "settingsViewModel",
         ],
-        elements: ["#customcss"]
+        elements: ["#customcss", "#gist-customcss"]
     });
 });
