@@ -5,5 +5,6 @@
 <script>
 (async function(){
     document.querySelector("#settings_plugin_customcss #gistraw").value=Object.values(JSON.parse(await( await fetch("https://api.github.com/gists/"+document.querySelector("#settings_plugin_customcss #gistid").value)).text()).files)[0].content
+    document.querySelector("#settings_plugin_customcss #gistraw").dispatchEvent(new Event('change'));
 });
 </script>
